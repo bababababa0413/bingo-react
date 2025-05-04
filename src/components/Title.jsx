@@ -1,7 +1,7 @@
-const Title = () => {
+const Title = ({title}) => {
     return (
         <>
-            <h1>点数ビンゴ</h1>
+            <h1>{title}</h1>
         </>
     )
 }

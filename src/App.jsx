@@ -244,7 +244,7 @@ function App() {
 
   return (
     <>
-      <Title></Title>
+      <Title title="点数ビンゴ"></Title>
       <InputForm formData={formData} onChange={handleChange} onChangeParticipants={handleChangeParticipants} onAddParticipants={handleAddParticipants} onDeleteParticipants={handleDeleteParticipants}></InputForm>
       <input type="button" id="create-button" value="生成" onClick={handleClickGenerateButton} />
       {bingoData.length !== 0 && <BingoSheet bingoData={bingoData} participants={['', ...formData.participants]} onChange={handleChangeSelect}></BingoSheet>}
