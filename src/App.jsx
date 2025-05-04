@@ -37,35 +37,7 @@ function App() {
       'hiF~G#',
       'hihi域'
     ];
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setFormData(prev => ({ ...prev, [name]: value }));
-  }
-
-  const handleChangeParticipants = (index, value) => {
-    const updateParticipants = [...formData.participants];
-    updateParticipants[index] = value;
-
-    setFormData(prev => ({ ...prev, participants: updateParticipants }));
-  }
-
-  const handleAddParticipants = () => {
-    setFormData(prev => ({ ...prev, participants: [...prev.participants, ''] }));
-  }
-
-  const handleDeleteParticipants = (index) => {
-    if (formData.participants.length === 1) {
-      return;
-    }
-
-    const updateParticipants = formData.participants.filter((_, i) => i !== index);
-
-    setFormData(prev => ({ ...prev, participants: updateParticipants }));
-  }
-
+    
   const handleChangeSelect = (i, j, e) => {
     const newBingoData = [...bingoData];
 
@@ -245,7 +217,7 @@ function App() {
   return (
     <>
       <Title title="点数ビンゴ"></Title>
-      <InputForm formData={formData} onChange={handleChange} onChangeParticipants={handleChangeParticipants} onAddParticipants={handleAddParticipants} onDeleteParticipants={handleDeleteParticipants}></InputForm>
+      <InputForm formData={formData} setFormData={setFormData}></InputForm>
       <input type="button" id="create-button" value="生成" onClick={handleClickGenerateButton} />
       {bingoData.length !== 0 && <BingoSheet bingoData={bingoData} participants={['', ...formData.participants]} onChange={handleChangeSelect}></BingoSheet>}
       <div id="overlay" ref={ref}>
